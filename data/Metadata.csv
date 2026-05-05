@@ -1,0 +1,43 @@
+﻿Column name,Description
+CELLS_PER_L,Phytoplankton abundance in cells per liter
+CHLA,Extracted chlorophyll-a in micrograms per liter
+CHLA_FLU_CALIB,Chl-a probe fluorescence calibrated to extracted chlorophyll
+CHLA_FLU_RAW,factory calibrated chl-a probe fluorescence in micrograms per liter
+CONDTVY,Conductivity in millisiemens
+DEPTH,Depth in meters
+DESCR,Taxonomic name
+DISS_OXYGEN,Dissolved oxygen in milligrams per liter
+EVENT_ID,Survey identifier
+GROUP_ID,Taxonomic group
+IND_PER_M3,Zooplankton abundance in individuals per cubic meter
+LOWEST_TAXON,Lowest taxonomic level identified
+METH_CODE,Code for analytical method
+NH4,Ammonium in micromoles/L
+NO2,Nitrite  in micromoles/L
+NO3,Nitrate  in micromoles/L
+NO3_NO2,Nitrate plus nitrite  in micromoles/L
+O2_PCT_SAT,Dissolved oxygen percent saturation
+ORDERED_DEPTH_CODE,"Code for planned sample depth. A=within 5 meters from surface; B=mid-survace, C=mid-depth; D=mid-bottom; E=within 5 meters from bottom"
+PAR_DEPTH,Photosynthetically active radiation (PAR) at depth. Photon flux density in micro-Einsteins per meter per second
+PAR_SURFACE,Deck sensor photosynthetically active radiation (PAR). Photon flux density in micro-Einsteins per meter per second
+PARTP,Particulate phosphorusin micromoles/L
+PH,Negative log of hydrogen ion activity
+PHAE,Phaeophytin in micromoles/L
+PO4,Phosphate ion in micromoles/L
+POC,Particulate organic carbon in micromoles/L
+PON,Particulate organic nitrogen in micromoles/L
+SAL,Practical salinity
+SIGMA_T,Sigma-t
+SIO4,Silicate ion in micromoles/L
+SPEC_CODE,MWRA code for taxonomic species
+SPEC_QUAL,Species qualiifer
+STAT_ARRIV,Station arrival time [EST]
+STAT_ID,Station identifier
+STUDY_ID,Identifier for study
+TDN,Total dissolved nitrogen in micromoles/L
+TDP,Total dissolved phosphorus  in micromoles/L
+TEMP,Temperature C
+TN,Total nitrogen  in micromoles/L
+TPHOS,Total phosphorus  in micromoles/L
+TRANS,Beam attenuation from transmissometer in reciprocal meters
+UG_CARBON_PER_L,"Microgram carbon per liter based on per-taxa, single cell carbon content estimates"

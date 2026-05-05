@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MWRA 2024 Water Quality Dashboard</title>
+    <link rel="stylesheet" href="assets/styles.css?v=20260504b" />
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+    <script src="assets/mwra_dashboard_data.js" defer></script>
+    <script src="assets/app.js?v=20260504b" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-inner">
+        <div>
+          <p class="eyebrow">Massachusetts Water Resources Authority</p>
+          <h1>2024 Boston Harbor and Massachusetts Bay water quality</h1>
+          <div class="header-stats" aria-label="Dataset summary">
+            <span>14 stations</span>
+            <span>18 survey events</span>
+            <span>Feb-Oct 2024</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="data/MWRA-DOWNCAST-2024.csv">Downcast CSV</a>
+          <a href="data/MWRA-LAB-RESULTS-2024.csv">Lab CSV</a>
+          <a href="data/MWRA-PHYTOPLANKTON-2024.csv">Phyto CSV</a>
+          <a href="data/MWRA-ZOOPLANKTON.csv">Zoo CSV</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="control-strip" aria-label="Dashboard filters">
+        <label>
+          Data family
+          <select id="family-select"></select>
+        </label>
+        <label>
+          Parameter
+          <select id="parameter-select"></select>
+        </label>
+        <label>
+          Survey date
+          <select id="date-select"></select>
+        </label>
+        <label>
+          Depth layer
+          <select id="depth-select">
+            <option value="All">All depths</option>
+            <option value="Surface (0-5m)">Surface (0-5m)</option>
+            <option value="Mid-water (5-20m)">Mid-water (5-20m)</option>
+            <option value="Deep (>20m)">Deep (&gt;20m)</option>
+          </select>
+        </label>
+        <label>
+          Probe cast
+          <select id="cast-select">
+            <option value="All" selected>Downcast + upcast</option>
+            <option value="Downcast">Downcast</option>
+            <option value="Upcast">Upcast</option>
+          </select>
+        </label>
+        <div class="region-filter" id="region-filter" aria-label="Region filters"></div>
+      </section>
+
+      <section class="kpi-grid" aria-label="Project summary">
+        <article class="kpi">
+          <span>Survey window</span>
+          <strong id="kpi-dates">-</strong>
+        </article>
+        <article class="kpi">
+          <span>Stations</span>
+          <strong id="kpi-stations">-</strong>
+        </article>
+        <article class="kpi">
+          <span>Survey events</span>
+          <strong id="kpi-events">-</strong>
+        </article>
+        <article class="kpi">
+          <span>Visible records</span>
+          <strong id="kpi-records">-</strong>
+        </article>
+      </section>
+
+      <section class="dashboard-grid map-grid">
+        <article class="panel map-panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Station overlay</p>
+              <h2 id="map-title">Parameter map</h2>
+            </div>
+            <span id="map-scale" class="pill">Mean value</span>
+          </div>
+          <div class="chart chart-map" id="station-map"></div>
+        </article>
+
+        <article class="panel coverage-panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Sampling design</p>
+              <h2>Coverage by dataset</h2>
+            </div>
+          </div>
+          <div id="coverage-chart" class="chart chart-compact"></div>
+          <div id="dataset-list" class="dataset-list"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Water column</p>
+              <h2 id="profile-title">Depth profile</h2>
+            </div>
+          </div>
+          <div id="depth-profile" class="chart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Temporal pattern</p>
+              <h2 id="timeseries-title">Event time series</h2>
+            </div>
+          </div>
+          <div id="time-series" class="chart"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Depth by date</p>
+              <h2 id="heatmap-title">Time-depth heatmap</h2>
+            </div>
+          </div>
+          <div id="time-depth-heatmap" class="chart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Nutrient overlay</p>
+              <h2>Nitrogen and phosphorus context</h2>
+            </div>
+          </div>
+          <div id="nutrient-chart" class="chart"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Phytoplankton</p>
+              <h2>Group abundance over time</h2>
+            </div>
+          </div>
+          <div id="phyto-chart" class="chart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Zooplankton</p>
+              <h2>Top taxa and groups</h2>
+            </div>
+          </div>
+          <div id="zoo-chart" class="chart"></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
