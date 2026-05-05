@@ -1,6 +1,8 @@
 ## MWRA 2024 Water Quality Dashboard
 
-GitHub repository: <https://github.com/AdityaIOTA13/MWRA_2024_EDA>
+GitHub repository: <https://github.com/kavya-anbarasu/MWRA_2024_EDA>
+
+Live dashboard: <https://kavya-anbarasu.github.io/MWRA_2024_EDA/>
 
 This repository now includes a static dashboard for the 2024 MWRA monitoring
 data. It uses the bundled CSV/XLSX files to show:
