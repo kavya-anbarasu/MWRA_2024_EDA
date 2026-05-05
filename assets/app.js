@@ -44,6 +44,7 @@
   }
 
   function init() {
+    initTabs();
     populateControls();
     updateKpis();
     renderDatasetList();
@@ -51,6 +52,33 @@
     window.addEventListener("resize", () => {
       window.clearTimeout(resizeTimer);
       resizeTimer = window.setTimeout(resizeCharts, 120);
+    });
+  }
+
+  function initTabs() {
+    const buttons = document.querySelectorAll("[data-tab-target]");
+    const panels = document.querySelectorAll(".tab-panel");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.dataset.tabTarget;
+
+        buttons.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle("is-active", active);
+          item.setAttribute("aria-selected", String(active));
+        });
+
+        panels.forEach((panel) => {
+          const active = panel.id === targetId;
+          panel.hidden = !active;
+          panel.classList.toggle("is-active", active);
+        });
+
+        if (targetId === "dashboard-tab") {
+          window.setTimeout(resizeCharts, 60);
+        }
+      });
     });
   }
 
